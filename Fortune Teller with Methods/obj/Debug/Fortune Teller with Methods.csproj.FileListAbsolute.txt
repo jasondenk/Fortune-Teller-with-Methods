@@ -1,0 +1,6 @@
+c:\users\wecancodeit\documents\visual studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\bin\Debug\Fortune Teller with Methods.exe.config
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\bin\Debug\Fortune Teller with Methods.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\bin\Debug\Fortune Teller with Methods.pdb
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\obj\Debug\Fortune Teller with Methods.csprojResolveAssemblyReference.cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\obj\Debug\Fortune Teller with Methods.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\Fortune Teller with Methods\Fortune Teller with Methods\obj\Debug\Fortune Teller with Methods.pdb
