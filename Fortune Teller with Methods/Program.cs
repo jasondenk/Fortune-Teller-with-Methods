@@ -3,69 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Fortune_Teller_with_Methods
 {
     class Program
     {
         public static void Main(string[] args)
-        {   Start:;        
+        {          
             Console.WriteLine("Welcome to Fortune Teller! \nPlease follow the prompt. \nType \"quit\" or\"q\" and press enter to exit at anytime.\nType\"restart\" and press enter at anytime to restart.");
             Console.WriteLine("Type your first name, press enter: ");
-            string firstName = Console.ReadLine();
-            bool restart = (firstName.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(firstName);
+            string firstName = Console.ReadLine();                        
+            RestartExit(firstName);
             Console.WriteLine("Type your last name, press enter: ");
-            string lastName = Console.ReadLine();
-            restart = (lastName.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(lastName);
+            string lastName = Console.ReadLine();            
+            RestartExit(lastName);
             Greeting(firstName, lastName);
             Console.WriteLine("Type your age, press enter: ");
-            string ageString = Console.ReadLine();
-            restart = (ageString.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(ageString);
+            string ageString = Console.ReadLine();            
+            RestartExit(ageString);
             Console.WriteLine("Type your birth month (as a number), press enter: ");
-            string birthMonthString = Console.ReadLine();
-            restart = (birthMonthString.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(birthMonthString);
+            string birthMonthString = Console.ReadLine();            
+            RestartExit(birthMonthString);
             Console.WriteLine("Type your favorite letter of the color spectrum ROYGBIV, or \nif you don't know what colors are in ROYGBIV, type help, then press enter:");
-            string color = Console.ReadLine();
-            restart = (color.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(color);
+            string color = Console.ReadLine();            
+            RestartExit(color);
             string ride = Transportation(color);
             Console.WriteLine("Type your number of siblings, press enter: ");
-            string sibling = Console.ReadLine();
-            restart = (sibling.ToLower() == "restart");
-            if (restart)
-            {
-                goto Start;
-            }
-            Exit(sibling);
+            string sibling = Console.ReadLine();            
+            RestartExit(sibling);
             int yearsToRetirement=RetirementTime(ageString);
             string vacationLocation = RetirementLocation(sibling);
             double bankMoney = BankMoney(birthMonthString);            
-            Console.WriteLine("\n\nYour Fortune:\n\n" + firstName + " " + lastName + " will retire in " + yearsToRetirement + " years with $" + bankMoney + " in the bank, a vacation\nhome in " + vacationLocation + " and a " + ride + ".");
+            Console.WriteLine("\n**************\nYour Fortune:\n\n" + firstName + " " + lastName + " will retire in " + yearsToRetirement + " years with $" + bankMoney + " in the bank, a vacation\nhome in " + vacationLocation + " and a " + ride + ".\n**************");
             JudgeFortune();
+            Console.WriteLine("\n\nType any key to exit.");
+            Console.ReadKey();
         }
         
         static string Greeting(string fName,string lName)
@@ -125,7 +98,7 @@ namespace Fortune_Teller_with_Methods
                 Console.WriteLine(" R=red \n O=orange \n Y=yellow \n G=green \n B=blue \n I=indigo \n V=violet \n");
                 Console.WriteLine("Enter your favorite letter of the color spectrum ROYGBIV, press enter: ");
                 color = Console.ReadLine();
-                Exit(color);
+                RestartExit(color);
                 colorLower = color.ToLower();
             }
             char colorChar = char.Parse(colorLower);
@@ -186,7 +159,7 @@ namespace Fortune_Teller_with_Methods
             Console.WriteLine("\nExcellent fortune.  Your future looks bright young grasshopper.\n");
             return;
         }
-        static void Exit(string input)
+        static void RestartExit(string input)
         {
             string input1 = input.ToLower();
             
@@ -194,7 +167,12 @@ namespace Fortune_Teller_with_Methods
             {
                 Environment.Exit(0);        
             }
-            
+            else if(input1=="restart")
+            {
+                var fileName = Assembly.GetExecutingAssembly().Location;
+                System.Diagnostics.Process.Start(fileName);
+                Environment.Exit(0);
+            }            
             return;
         }
     }
