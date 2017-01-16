@@ -25,10 +25,11 @@ namespace Fortune_Teller_with_Methods
             Console.WriteLine("Type your birth month (as a number), press enter: ");
             string birthMonthString = Console.ReadLine();            
             RestartExit(birthMonthString);
-            Console.WriteLine("Type your favorite letter of the color spectrum ROYGBIV, or \nif you don't know what colors are in ROYGBIV, type help, then press enter:");
+            Console.WriteLine("Type your favorite LETTER or combination of LETTERS of the color spectrum \nROYGBIV, or if you don't know what colors are in ROYGBIV, \ntype help, then press enter:");
             string color = Console.ReadLine();            
             RestartExit(color);
             string ride = Transportation(color);
+            
             Console.WriteLine("Type your number of siblings, press enter: ");
             string sibling = Console.ReadLine();            
             RestartExit(sibling);
@@ -96,39 +97,50 @@ namespace Fortune_Teller_with_Methods
             if (colorLower == "help")
             {
                 Console.WriteLine(" R=red \n O=orange \n Y=yellow \n G=green \n B=blue \n I=indigo \n V=violet \n");
-                Console.WriteLine("Enter your favorite letter of the color spectrum ROYGBIV, press enter: ");
+                Console.WriteLine("Enter your favorite LETTER or combination of LETTERS of the color spectrum \nROYGBIV, press enter: ");
                 color = Console.ReadLine();
                 RestartExit(color);
                 colorLower = color.ToLower();
-            }
-            char colorChar = char.Parse(colorLower);
+            }          
             string transportation = "walk";
-            switch (colorChar)
+            if (color.Length == 1)
             {
-                case 'r':
-                    transportation = "boat";
-                    break;
-                case 'o':
-                    transportation = "jet";
-                    break;
-                case 'y':
-                    transportation = "hot air balloon";
-                    break;
-                case 'g':
-                    transportation = "sled dog team";
-                    break;
-                case 'b':
-                    transportation = "jeep";
-                    break;
-                case 'i':
-                    transportation = "submarine";
-                    break;
-                case 'v':
-                    transportation = "helicopter";
-                    break;
+                char colorChar = char.Parse(colorLower);
+                switch (colorChar)
+                {
+                    case 'r':
+                        transportation = "boat";
+                        break;
+                    case 'o':
+                        transportation = "jet";
+                        break;
+                    case 'y':
+                        transportation = "hot air balloon";
+                        break;
+                    case 'g':
+                        transportation = "sled dog team";
+                        break;
+                    case 'b':
+                        transportation = "jeep";
+                        break;
+                    case 'i':
+                        transportation = "submarine";
+                        break;
+                    case 'v':
+                        transportation = "helicopter";
+                        break;
+                    default:
+                        transportation = "mule";
+                        break;
+                }
+            }
+            else
+            {
+                transportation = "magic carpet";
             }
             return transportation;
         }
+
         static double BankMoney(string birthMonthString)
         {
             int birthMonth = int.Parse(birthMonthString);
